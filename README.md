@@ -5,6 +5,7 @@ The project is made according to the layout https://www.figma.com/design/Msi07f6
 - HTML, 
 - SCSS, 
 - JS.
+- Gulp.
 
 The web page has a functioning *carousel, accordion, slider.*
 
