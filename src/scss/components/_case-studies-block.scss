@@ -1,0 +1,78 @@
+@use '../tools';
+
+
+.case-wrapper {
+  overflow-x: scroll;
+
+  & .case-studies-block {
+    display: flex;
+
+    border-radius: 45px;
+    background-color: tools.$color-dark;
+    @media (max-width: 1280px) {
+      min-width: 1130px;
+
+      background: none;
+
+      gap: clamp(1px, -2.353vw + 1.882rem, 20px);
+    }
+
+    & hr {
+      min-height: 186px;
+      margin: clamp(0px, 43.75vw - 35rem, 70px) 0;
+
+      border: .5px solid tools.$color-base;
+      @media (max-width: 1280px) {
+        display: none;
+      }
+    }
+
+    & .initial {
+      padding: clamp(42px, 2.772vw + 1.88rem, 70px) clamp(50px, 1.386vw + 2.752rem, 64px) clamp(42px, 2.772vw + 1.88rem, 70px) clamp(50px, .99vw + 2.859rem, 60px);
+
+      border-radius: 45px clamp(0px, -17.578vw + 14.063rem, 45px) clamp(0px, -17.578vw + 14.063rem, 45px) 45px;
+    }
+
+    & .middle {
+      padding: clamp(42px, 2.772vw + 1.88rem, 70px) clamp(50px, 1.386vw + 2.752rem, 64px);
+
+      border-radius: clamp(0px, -17.578vw + 14.063rem, 45px);
+    }
+
+    & .final {
+      padding: clamp(42px, 2.772vw + 1.88rem, 70px) clamp(50px, .99vw + 2.859rem, 60px) clamp(42px, 2.772vw + 1.88rem, 70px) clamp(50px, 1.386vw + 2.752rem, 64px);
+
+      border-radius: clamp(0px, -17.578vw + 14.063rem, 45px) 45px 45px clamp(0px, -17.578vw + 14.063rem, 45px);
+    }
+
+
+    & .case-block-card {
+      background-color: tools.$color-dark;
+
+
+      & .block-description {
+        padding-bottom: 20px;
+
+        color: tools.$color-base;
+
+        @include tools.size-line-height(1.125rem);
+        @media (max-width: 1024px) {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+
+      & .block-link {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+
+        display: flex;
+
+        color: tools.$color-accent;
+
+        align-items: center;
+        gap: 15px;
+      }
+    }
+  }
+}

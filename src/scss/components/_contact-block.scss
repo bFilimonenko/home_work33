@@ -1,0 +1,122 @@
+@use '../tools';
+
+
+.contact-block {
+  display: flex;
+
+  height: clamp(540px, 23.069vw + 27.55rem, 773px);
+  padding-top: clamp(40px, 4.808vw - .577rem, 60px);
+  padding-left: clamp(30px, 16.827vw - 8.894rem, 100px);
+
+  border-radius: 45px;
+  background-color: tools.$color-light;
+
+  justify-content: space-between;
+  @media (max-width: 1024px) {
+    padding: 40px 30px 0 30px;
+  }
+
+  & form {
+    width: clamp(463px, 22.356vw + 14.63rem, 556px);
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    & .purpose {
+      display: flex;
+
+      align-items: center;
+      @media (max-width: 1024px) {
+        justify-content: center;
+      }
+
+      & input[type='radio'] {
+        width: 28px;
+        height: 28px;
+
+        border: 1px solid tools.$color-font;
+        border-radius: 50%;
+        background-color: tools.$color-base;
+        box-shadow: 0 0 0 6px tools.$color-base inset;
+
+        appearance: none;
+
+        &:checked {
+          border-width: 1px;
+          background-color: tools.$color-accent;
+        }
+      }
+
+      & label {
+        padding-right: 35px;
+        padding-left: 14px;
+
+        @include tools.size-line-height(1.125rem);
+        @media (max-width: 1024px) {
+          @include tools.size-line-height(1rem);
+        }
+      }
+    }
+
+    & .fields {
+      display: flex;
+      flex-direction: column;
+
+      margin-top: clamp(26px, 1.386vw + 1.252rem, 40px);
+
+      & label {
+        font-size: 1.125rem;
+        line-height: 1.75;
+
+        margin-top: clamp(20px, .495vw + 1.117rem, 25px);
+        padding-bottom: 5px;
+        @media (max-width: 1024px) {
+          @include tools.size-line-height(.875rem);
+        }
+      }
+
+      & input,
+      textarea {
+        padding: 18px clamp(20px, .99vw + .984rem, 30px);
+
+        border: 1px solid tools.$color-font;
+        border-radius: 14px;
+
+        @include tools.size-line-height(1.125rem);
+        @media (max-width: 1024px) {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+
+        &:focus {
+          outline: 1px solid tools.$color-accent;
+        }
+      }
+
+      & #message {
+        height: clamp(132px, 5.743vw + 6.707rem, 190px);
+
+        resize: none;
+      }
+    }
+
+    & button {
+      position: relative;
+      top: clamp(40px, -6.734vw + 6.81rem, 80px);
+
+      width: 100%;
+
+      color: tools.$color-base;
+      background-color: tools.$color-dark;
+
+      @include tools.basic-button;
+    }
+  }
+
+  & img {
+    max-height: 649px;
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+}

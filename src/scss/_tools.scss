@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'Space Grotesk Light';
+  font-weight: 300;
+  font-style: normal;
+
+  src: url(/fonts/SpaceGrotesk-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk Regular';
+  font-weight: 400;
+  font-style: normal;
+
+  src: url(/fonts/SpaceGrotesk-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk Medium';
+  font-weight: 500;
+  font-style: normal;
+
+  src: url(/fonts/SpaceGrotesk-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk SemiBold';
+  font-weight: 600;
+  font-style: normal;
+
+  src: url(/fonts/SpaceGrotesk-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk Bold';
+  font-weight: 700;
+  font-style: normal;
+
+  src: url(/fonts/SpaceGrotesk-Bold.ttf) format('truetype');
+}
+
+$mainFont: 'Space Grotesk Regular';
+$fontSize: 16px;
+
+//Colors
+$color-font: #000;
+$color-base: #fff;
+$color-accent: #b9ff66;
+$color-dark: #191a23;
+$color-light: #f3f3f3;
+
+body {
+  font-family: $mainFont;
+  font-size: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.wrapper {
+  display: block;
+
+  width: 100%;
+  max-width: clamp(430px, 100vw + 0rem, 1880px);
+  padding: clamp(30px, 2.97vw + 1.077rem, 60px) clamp(20px, 5.941vw - .347rem, 80px) 0;
+}
+
+//Typography
+
+@mixin size-line-height($fontSize) {
+  font-size: $fontSize;
+  line-height: $fontSize * 1.276;
+}
+
+.subheading {
+  display: flex;
+
+  margin-top: clamp(3.75rem, 7.921vw + 1.621rem, 8.75rem);
+  margin-bottom: clamp(2.5rem, 3.96vw + 1.436rem, 5rem);
+
+  align-items: center;
+  gap: 2.5rem;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  h2 {
+    font-family: 'Space Grotesk Medium';
+
+    display: inline-block;
+
+    padding: 0 7px;
+
+    border-radius: 7px;
+    background-color: $color-accent;
+
+    @include size-line-height(2.5rem);
+    @media (max-width: 1024px) {
+      @include size-line-height(2.25rem);
+    }
+  }
+
+  p {
+    max-width: 580px;
+
+    @include size-line-height(1.125rem);
+    @media (max-width: 1024px) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+@mixin basic-button {
+  font-family: $mainFont;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+
+  padding: 20px 35px;
+
+  text-align: center;
+
+  border-radius: 14px;
+}

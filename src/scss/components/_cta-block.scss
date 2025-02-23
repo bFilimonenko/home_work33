@@ -1,0 +1,57 @@
+@use '../tools';
+
+article {
+  position: relative;
+
+  display: flex;
+
+  & .cta-block {
+    width: 100%;
+    margin: 23.5px 0;
+    padding: clamp(50px, .99vw + 2.859rem, 60px);
+
+    border-radius: 45px;
+    background-color: tools.$color-light;
+
+    & .cta-block-body {
+      max-width: clamp(290px, 20.588vw + 12.592rem, 500px);
+
+      & h3 {
+        font-family: 'Space Grotesk Medium';
+
+        margin-bottom: clamp(20px, .594vw + 1.09rem, 26px);
+
+        @include tools.size-line-height(1.875rem);
+        @media (max-width: 1024px) {
+          @include tools.size-line-height(1.625rem);
+        }
+      }
+
+      & p {
+        margin-bottom: clamp(20px, .594vw + 1.09rem, 26px);
+
+        @include tools.size-line-height(1.125rem);
+        @media (max-width: 1024px) {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+
+      & button {
+        color: tools.$color-base;
+        border: none;
+        background-color: tools.$color-dark;
+
+        @include tools.basic-button;
+      }
+    }
+  }
+
+  & img {
+    position: absolute;
+    right: clamp(-8.125rem, 31.25vw - 28.125rem, 0rem);
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+}

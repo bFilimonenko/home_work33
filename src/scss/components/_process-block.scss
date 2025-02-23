@@ -1,0 +1,83 @@
+@use '../tools';
+
+.process-block {
+  display: grid;
+
+  gap: 30px;
+
+  & .process-block-card {
+    display: flex;
+    overflow: auto; //width
+    flex-direction: column;
+
+    padding: clamp(30px, 1.089vw + 1.582rem, 41px) clamp(30px, 2.97vw + 1.077rem, 60px);
+
+    border: 1px solid tools.$color-dark;
+    border-radius: 45px;
+    background-color: tools.$color-light;
+    box-shadow: 0 5px 0 0 tools.$color-dark;
+
+    & .card-header {
+      display: flex;
+
+      align-items: center;
+
+      & .card-number {
+        font-family: 'Space Grotesk Medium';
+
+        @include tools.size-line-height(3.75rem);
+        @media (max-width: 1024px) {
+          @include tools.size-line-height(1.875rem);
+        }
+      }
+
+      & .card-title {
+        font-family: 'Space Grotesk Medium';
+
+        padding-left: 25px;
+
+        @include tools.size-line-height(1.875rem);
+        @media (max-width: 1024px) {
+          @include tools.size-line-height(1.125rem);
+        }
+      }
+    }
+
+    & .accordion-button {
+      position: absolute;
+
+      width: clamp(30px, 2.772vw + 1.13rem, 58px);
+      height: clamp(30px, 2.772vw + 1.13rem, 58px);
+      margin: clamp(4px, .495vw + .117rem, 9.5px);
+
+      border-radius: 30px;
+      background-image: url(/icons/plus-icon.svg);
+      background-size: contain;
+
+      align-self: end;
+    }
+
+    & .accordion-button.active {
+      background-image: url(/icons/minus-icon.svg);
+    }
+
+    & .accordion-description {
+      font-size: clamp(1rem, .9468rem + .198vw, 1.125rem);
+
+      display: none;
+      overflow: hidden; //width
+
+
+      & hr {
+        width: clamp(332px, 77.624vw - .111rem, 1114px);
+        margin: 30px auto;
+
+        border: .5px solid tools.$color-font;
+      }
+    }
+  }
+
+  //.process-block-card:has(> .accordion-button.active) {
+  //  background-color: #b9ff66;
+  //}
+}

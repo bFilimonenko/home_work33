@@ -1,0 +1,99 @@
+@use '../tools';
+
+.team-block {
+  display: flex;
+
+  max-width: 1659px;
+
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+
+  & .team-block-card {
+    max-width: 385px;
+    padding: 40px 35px;
+
+    border: 1px solid tools.$color-dark;
+    border-radius: 45px;
+    box-shadow: 0 5px 0 0 tools.$color-dark;
+
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    & .card-elem {
+      display: flex;
+
+      align-items: end;
+
+      & .person {
+        width: 103px;
+        height: 103px;
+        margin-right: 20px;
+      }
+
+      & section {
+        & h4 {
+          font-family: 'Space Grotesk Medium';
+
+          @include tools.size-line-height(1.25rem);
+          @media (max-width: 1024px) {
+            @include tools.size-line-height(1.125rem);
+          }
+        }
+
+        & p {
+          @include tools.size-line-height(1.25rem);
+          @media (max-width: 1024px) {
+            font-size: 1rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
+
+      & .team-link {
+        margin-bottom: auto;
+        margin-left: auto;
+      }
+    }
+  }
+
+  & hr {
+    margin: 28px auto;
+
+    border: .5px solid tools.$color-font;
+  }
+
+  & p {
+    @include tools.size-line-height(1.25rem);
+    @media (max-width: 1024px) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.team-block-action {
+  display: flex;
+
+  margin-top: 40px;
+
+  justify-content: end;
+
+  & .team-button {
+    padding: 20px 76px;
+
+    color: tools.$color-base;
+    border: none;
+    background-color: tools.$color-dark;
+
+    @include tools.basic-button;
+    align-self: flex-end;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}

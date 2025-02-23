@@ -1,0 +1,354 @@
+@use '../tools';
+
+
+header {
+  position: relative;
+
+  display: flex;
+
+  margin-bottom: clamp(40px, 2.941vw + 1.71rem, 70px);
+
+  justify-content: space-between;
+  align-items: center;
+
+  & .logotype-dark {
+    & a img {
+      width: clamp(144px, 7.525vw + 6.978rem, 220px);
+    }
+  }
+
+  //desktop
+  & nav.desktop-menu {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+
+    & ul.menu-items {
+      display: flex;
+
+      align-items: center;
+      gap: 2.5rem;
+
+      & a {
+        font-size: 1.25rem;
+
+        color: tools.$color-font;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      & button {
+        border: 1px solid black;
+        background-color: tools.$color-base;
+
+        @include tools.basic-button;
+
+        &:hover {
+          cursor: pointer;
+
+          background-color: tools.$color-light;
+        }
+      }
+    }
+  }
+
+  //mobile
+  & nav.mobile-menu {
+    display: none;
+    @media (max-width: 1024px) {
+      display: block;
+    }
+
+    & #menu-toggle {
+      opacity: 0;
+
+      &:checked ~ .menu-btn > span:nth-child(1) {
+        top: -9px;
+
+        transform: rotate(45deg);
+      }
+
+      &:checked ~ .menu-btn > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:checked ~ .menu-btn > span:nth-child(3) {
+        top: -9px;
+
+        transform: rotate(-45deg);
+      }
+
+      &:checked ~ .menu-items {
+        //visibility: visible;
+        //right: 0;
+        display: flex;
+      }
+    }
+
+    & label.menu-btn {
+      position: relative;
+      z-index: 1;
+
+      display: flex;
+
+      width: 32px;
+
+      align-items: center;
+      @media (max-width: 768px) {
+        width: 26px;
+      }
+
+      & span {
+        position: absolute;
+
+        display: block;
+
+        width: 100%;
+        height: 3px;
+
+        transition-duration: 300ms;
+
+        border-radius: 5px;
+        background-color: tools.$color-font;
+
+        @media (max-width: 768px) {
+          height: 2px;
+        }
+
+        &:nth-child(1) {
+          top: -20px;
+
+          content: '';
+          @media (max-width: 768px) {
+            top: -17px;
+          }
+        }
+
+        &:nth-child(2) {
+          top: -9px;
+
+          content: '';
+          @media (max-width: 768px) {
+            top: -9px;
+          }
+        }
+
+        &:nth-child(3) {
+          top: 2px;
+
+          content: '';
+          @media (max-width: 768px) {
+            top: -1px;
+          }
+        }
+      }
+    }
+
+    & .menu-items {
+      position: absolute;
+      top: 33px;
+      left: 0;
+
+      display: none;
+      flex-direction: column;
+
+      width: 100%;
+      padding: 15px;
+
+      transition-duration: 300ms;
+
+      border-bottom-right-radius: 14px;
+      border-bottom-left-radius: 14px;
+      background-color: tools.$color-light;
+
+      align-items: end;
+      gap: 20px;
+
+      & a {
+        font-size: 1.25rem;
+
+        letter-spacing: 3px;
+
+        color: tools.$color-font;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      & button {
+        padding: 10px 20px;
+
+        border: 1px solid black;
+        background-color: tools.$color-base;
+
+        @include tools.basic-button;
+
+        &:hover {
+          cursor: pointer;
+
+          background-color: tools.$color-light;
+        }
+      }
+    }
+  }
+
+  &:has(#menu-toggle:checked) {
+    margin-bottom: 300px;
+
+    transition-duration: 300ms;
+  }
+}
+
+
+main {
+  display: flex;
+
+  margin-bottom: clamp(60px, .99vw + 3.484rem, 70px);
+
+  justify-content: space-between;
+
+  & .introduction {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 530px;
+
+    justify-content: space-between;
+    align-items: flex-start;
+    @media (max-width: 1024px) {
+      max-width: none;
+    }
+
+    & .introduction-title {
+      @include tools.size-line-height(3.75rem);
+      @media (max-width: 1024px) {
+        @include tools.size-line-height(2.7rem);
+      }
+    }
+
+    & .main-illustration {
+      display: none;
+      @media (max-width: 1024px) {
+        display: block;
+
+        padding: 10px;
+      }
+
+      & img {
+        display: block;
+
+        width: 100%;
+      }
+    }
+
+    & .introduction-description {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      @media (max-width: 1024px) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+
+        padding-top: 20px;
+      }
+    }
+
+    & .introduction-link {
+      width: 264px;
+
+      color: tools.$color-base;
+      border: none;
+      background-color: tools.$color-dark;
+
+      @include tools.basic-button;
+      @media (max-width: 1024px) {
+        width: 100%;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  & .main-illustration {
+    align-self: center;
+    @media (max-width: 1024px) {
+      display: none;
+    }
+
+    & img {
+      display: block;
+
+      width: 100%;
+    }
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+
+  & .carousel {
+    display: flex;
+
+    animation: slide 10s linear infinite;
+
+    gap: clamp(37px, 5.743vw + .769rem, 96px);
+    align-items: center;
+
+    & .item {
+      text-align: center;
+
+      flex: 0 0 130px;
+
+      & img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+        filter: grayscale(100%);
+      }
+    }
+  }
+
+  @keyframes slide {
+    100% {
+      transform: translateX(calc((130px + clamp(37px, 5.743vw + .769rem, 96px)) * 6 * -1));
+    }
+  }
+
+  & .carousel-reverse {
+    display: none;
+
+    animation: slide-reverse 10s linear -5s infinite;
+
+    gap: clamp(37px, 5.743vw + .769rem, 96px);
+    align-items: center;
+    @media (max-width: 1024px) {
+      display: flex;
+    }
+
+    & .item {
+      text-align: center;
+
+      flex: 0 0 130px;
+
+      & img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+        filter: grayscale(100%);
+      }
+    }
+  }
+
+  @keyframes slide-reverse {
+    0% {
+      transform: translateX(calc((130px + clamp(37px, 5.743vw + .769rem, 96px)) * 6 * -1));
+    }
+  }
+}
